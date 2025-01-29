@@ -1,0 +1,18 @@
+Task 1: Inductive Bias in Machine Learning
+Inductive bias refers to the set of assumptions that a machine learning model uses to generalize from training data to unseen examples. Since machine learning algorithms rely on training data to learn patterns, they must make certain assumptions about how data behaves in order to make predictions effectively. Inductive bias is essential because, without it, a model would not be able to generalize beyond its training set and would instead overfit to the data it has seen.
+
+Types of Inductive Biases
+Representational Bias – The way data is structured and represented influences what patterns can be learned.
+Preference Bias – Some models prefer simpler patterns over complex ones (e.g., Occam’s Razor).
+Learning Algorithm Bias – Different algorithms impose different biases based on their structure (e.g., decision trees assume hierarchical splits in data).
+Real-Life Example: CNNs in Image Recognition
+Convolutional Neural Networks (CNNs) leverage a strong inductive bias known as spatial hierarchy. In images, nearby pixels often share more information than distant ones, and objects typically have local patterns such as edges and textures. CNNs use convolutional layers to detect local features first, then gradually combine them into more complex representations. This inductive bias allows CNNs to:
+
+Focus on relevant patterns while ignoring noise.
+Learn efficiently with fewer parameters than fully connected networks.
+Perform well even with limited training data.
+Without this inductive bias, CNNs would struggle to distinguish objects in images efficiently. Instead of learning from spatial relationships, they would treat images as random pixel values, leading to poor generalization.
+
+Conclusion
+Inductive bias is a fundamental concept in machine learning that determines how well a model generalizes. Choosing the right bias for a problem is crucial to ensure that the model learns meaningful patterns rather than just memorizing the training data.
+
