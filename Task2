@@ -39,14 +39,7 @@ Linear Regression Model for TV Ads and Sales
 A simple linear regression model is applied, where:
 
 Sales
-=
-𝑏
-0
-+
-𝑏
-1
-×
-TV Ad Budget
+=𝑏0+𝑏1×TV Ad Budget
 Sales=b 
 0
 ​
