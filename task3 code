@@ -1,0 +1,45 @@
+import pandas as pd
+import numpy as np
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.preprocessing import LabelEncoder
+
+data = {
+    'Outlook': ['sunny', 'sunny', 'overcast', 'rain', 'rain', 'rain', 'overcast', 'sunny', 'sunny', 'rain', 'sunny', 'overcast'],
+    'Temperature': ['hot', 'hot', 'hot', 'mild', 'cool', 'cool', 'cool', 'mild', 'cool', 'mild', 'mild', 'hot'],
+    'Humidity': ['high', 'high', 'high', 'high', 'normal', 'normal', 'normal', 'high', 'normal', 'normal', 'high', 'normal'],
+    'Windy': ['false', 'true', 'false', 'false', 'false', 'true', 'true', 'false', 'false', 'true', 'true', 'false'],
+    'Class': ['−', '−', '+', '+', '−', '−', '+', '−', '+', '−', '+', '−']
+}
+
+df = pd.DataFrame(data)
+
+label_encoders = {}
+for column in ['Outlook', 'Temperature', 'Humidity', 'Windy', 'Class']:
+    le = LabelEncoder()
+    df[column] = le.fit_transform(df[column])
+    label_encoders[column] = le
+
+X = df[['Outlook', 'Temperature', 'Humidity', 'Windy']]
+y = df['Class']
+
+nb = MultinomialNB()
+nb.fit(X, y)
+
+input_data = ['sunny', 'cool', 'high', 'true']
+
+encoded_input = [
+    label_encoders['Outlook'].transform([input_data[0]])[0],
+    label_encoders['Temperature'].transform([input_data[1]])[0],
+    label_encoders['Humidity'].transform([input_data[2]])[0],
+    label_encoders['Windy'].transform([input_data[3]])[0]
+]
+
+encoded_input = np.array(encoded_input).reshape(1, -1)
+
+probabilities = nb.predict_proba(encoded_input)
+
+predicted_class = label_encoders['Class'].inverse_transform([np.argmax(probabilities)])
+
+print(f"Input conditions: {input_data}")
+print(f"Predicted Class: {predicted_class[0]}")
+print(f"Class Probabilities: Play Tennis (+) = {probabilities[0][1]:.3f}, Don't Play Tennis (−) = {probabilities[0][0]:.3f}")
