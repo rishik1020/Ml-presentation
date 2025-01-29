@@ -1,0 +1,117 @@
+Task 2: Learning Tasks – Classification and Regression
+Introduction
+Machine learning models are broadly categorized into supervised, unsupervised, and reinforcement learning tasks. Supervised learning is the most widely used approach and consists of two main types: classification and regression. Both techniques aim to map inputs to outputs, but they differ in how they handle predictions.
+
+Classification involves predicting discrete labels (e.g., "spam" or "not spam" in email filtering).
+Regression is used when the target variable is continuous (e.g., predicting house prices).
+Understanding these learning tasks is crucial for selecting the right model, optimizing performance, and making data-driven decisions.
+
+Classification and Regression: Key Differences
+Feature	Classification	Regression
+Output Type	Discrete Labels	Continuous Values
+Examples	Spam Detection, Medical Diagnosis	House Price Prediction, Stock Market Forecasting
+Algorithms	Decision Trees, Random Forest, Neural Networks (Softmax)	Linear Regression, Polynomial Regression, Neural Networks (ReLU)
+Evaluation Metrics	Accuracy, Precision-Recall, F1 Score	Mean Squared Error (MSE), R² Score
+Real-Life Case Study: Impact of Advertisements on Sales
+This task explores how different types of advertisements—TV, Radio, and Newspaper—affect sales. The dataset contains advertising budgets for each medium and the resulting sales figures. The objective is to understand which type of ad spending has the highest impact and to develop a predictive model.
+
+Step 1: Correlation Analysis
+What is Correlation?
+Correlation measures how strongly two variables are related. It ranges from -1 to 1, where:
+
++1 indicates a strong positive relationship (both increase together).
+-1 indicates a strong negative relationship (one increases, the other decreases).
+0 means no relationship.
+Results of Correlation Analysis
+Feature	Correlation with Sales
+TV Ads	0.78 (Strong Positive Correlation)
+Radio Ads	0.58 (Moderate Positive Correlation)
+Newspaper Ads	0.23 (Weak Positive Correlation)
+Interpretation:
+
+TV ads have the highest correlation with sales, meaning that increasing TV ad spending is more likely to boost sales.
+Radio ads also show a moderate correlation, but not as strong as TV.
+Newspaper ads have the weakest correlation, suggesting that they contribute less to sales.
+Step 2: Regression Analysis – Predicting Sales from Ad Spending
+To quantify the relationship between ad spending and sales, we use a regression model. The goal is to create an equation that predicts sales based on TV, Radio, and Newspaper budgets.
+
+Linear Regression Model for TV Ads and Sales
+A simple linear regression model is applied, where:
+
+Sales
+=
+𝑏
+0
++
+𝑏
+1
+×
+TV Ad Budget
+Sales=b 
+0
+​
+ +b 
+1
+​
+ ×TV Ad Budget
+After training the model, we obtain the equation:
+
+Sales
+=
+7.12
++
+0.0465
+×
+TV Ad Budget
+Sales=7.12+0.0465×TV Ad Budget
+Model Performance Metrics:
+Mean Squared Error (MSE): 10.20 (Measures how far predictions are from actual values; lower is better).
+R² Score: 0.68 (68% of the variance in sales is explained by TV ad spending).
+Interpretation of Regression Equation:
+The intercept (7.12) represents the base level of sales when no money is spent on TV ads.
+The coefficient (0.0465) means that for every additional unit spent on TV ads, sales increase by approximately 0.0465 units.
+This confirms that TV ads have a strong positive effect on sales, making them a worthwhile investment for maximizing revenue.
+
+Step 3: Classification Approach – Predicting High vs. Low Sales
+In some cases, businesses may want to categorize sales into "High" or "Low" instead of predicting exact sales figures. This turns the problem into a classification task, where:
+
+"High Sales" (1): Sales above a threshold (e.g., >15 units).
+"Low Sales" (0): Sales below the threshold.
+Applying a Classification Model
+A logistic regression model or a decision tree classifier can be trained to predict whether a given advertisement budget will result in "High" or "Low" sales.
+
+Example Prediction:
+
+Input: TV Ad Budget = 200
+Model Output: High Sales (1) with 82% probability
+By setting a threshold, businesses can make binary decisions, such as:
+
+If probability > 70%, increase ad spending.
+If probability < 50%, reallocate budget to other channels.
+Step 4: Comparing Regression and Classification
+Criteria	Regression	Classification
+When to Use?	Predicting numerical sales figures	Determining if sales will be "High" or "Low"
+Example Output	Sales = 20.5 units	Probability(High Sales) = 82%
+Algorithm Used	Linear Regression	Logistic Regression, Decision Trees
+Both approaches provide valuable insights. Regression helps in precise forecasting, while classification helps in decision-making for marketing strategies.
+
+Challenges and Limitations
+Correlation Does Not Imply Causation
+
+Just because TV ads correlate with sales does not mean TV ads directly cause higher sales. Other factors, such as brand loyalty, promotions, and product quality, may also play a role.
+Multicollinearity Issues
+
+If multiple independent variables (e.g., TV, Radio, and Newspaper ads) are highly correlated with each other, regression models may struggle to distinguish their individual effects.
+Overfitting in Classification Models
+
+If a decision tree classifier is too complex, it may perform well on training data but fail to generalize to new ad budgets.
+Changing Market Trends
+
+Consumer behavior changes over time. A model trained on past data may not always accurately predict future sales. Regular model retraining is essential.
+Conclusion
+This task demonstrated the power of classification and regression models in analyzing sales data and optimizing marketing strategies.
+
+Regression is useful for making precise predictions about sales figures.
+Classification helps in decision-making, such as determining whether an ad budget is likely to result in high or low sales.
+TV ads have the strongest influence on sales, making them the best choice for increasing revenue.
+Machine learning techniques like regression and classification can be applied in various industries, from marketing to finance, healthcare, and beyond. Selecting the right approach depends on whether the goal is to predict continuous values (regression) or classify outcomes into categories (classification).
