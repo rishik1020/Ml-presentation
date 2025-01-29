@@ -69,8 +69,6 @@ Inductive bias is a fundamental concept in machine learning that determines how 
 
 CNNs are a great example of how inductive bias helps models learn efficiently—they assume that spatial features in images are meaningful, allowing them to detect edges, shapes, and objects effectively. However, choosing the appropriate inductive bias is problem-specific, and understanding different biases is crucial for designing effective machine learning models.
 
-Would you like further examples or refinements? 🚀
-
 
 
 
